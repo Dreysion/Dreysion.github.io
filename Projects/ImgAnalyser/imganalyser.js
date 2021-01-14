@@ -33,7 +33,7 @@ function getData(){ //still figuring this stuff out, I'm new at it
 		for(i=0;i<imgData.data.length;i+=4){
 			document.getElementById("test").innerHTML=i;
 			console.log(imgData.data[i]+" "+imgData.data[i+1]+" "+imgData.data[i+2]);
-			if(i==imgData.data.length-3){working=false;console.log("done");}
+			if(i==imgData.data.length-4){working=false;console.log("done");}
 		}
 	}
 }
