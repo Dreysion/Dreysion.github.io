@@ -20,7 +20,7 @@ function drawImage(img){
 	ctx.drawImage(img,0,0);
 }
 
-function getData(){
+function getData(){ //still figuring this stuff out, I'm new at it
 	if(!working){
 		working=true;
 		console.log("working...");
@@ -38,9 +38,7 @@ function getData(){
 	}
 }
 
-function switchit(){
-	srcold=s.src;
-	
+function switchit(){ //temporary function, won't be utilized in final project
 	if(src=="sample.jpg"){
 		src="sample2.png";
 	}else{
