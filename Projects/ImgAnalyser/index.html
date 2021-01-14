@@ -6,7 +6,9 @@
 	</head>
 	<body id="body" onload="loadStuff()">
 		<canvas id="canvas"></canvas>
-		<input id="uploaded" type="file" />
+		<form enctype="multipart/form-data" action="/upload/image" method="post">
+			<input id="uploaded" type="file" />
+		</form>
 		<button onclick="switchit()">switch</button>
 		<button onclick="useUploaded()">Use Uploaded</button>
 		<button onclick="getData()">Analyse</button>
