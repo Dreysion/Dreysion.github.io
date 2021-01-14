@@ -7,7 +7,8 @@
 	<body id="body" onload="loadStuff()">
 		<canvas id="canvas"></canvas>
 		<form enctype="multipart/form-data" action="/upload/image" method="post">
-			<input id="uploaded" type="file" />
+			<label for="image_upload">Upload an image</label>
+			<input id="uploaded" type="file" accept="image/png, image/jpeg" style="opacity:0" /> <!--doesn't work, need php or asp or something to make the connection private and secure-->
 		</form>
 		<button onclick="switchit()">switch</button>
 		<button onclick="useUploaded()">Use Uploaded</button>

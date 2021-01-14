@@ -59,6 +59,6 @@ function useUploaded(){
 	src=u;
 	s.src=src;
 	s.onload=function(){
-		drawImage(s);
+		drawImage(s);   //doesn't work, need to use php or asp or something to make connection private and secure
 	}
 }
