@@ -53,3 +53,12 @@ function switchit(){ //temporary function, won't be utilized in final project
 		drawImage(s);
 	};		
 }
+
+function useUploaded(){
+	u=document.getElementById("uploaded").value;
+	src=u;
+	s.src=src;
+	s.onload=function(){
+		drawImage(s);
+	}
+}
