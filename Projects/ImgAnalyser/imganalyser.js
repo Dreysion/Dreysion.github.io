@@ -24,13 +24,14 @@ function getData(){
 	if(!working){
 		working=true;
 		console.log("working...");
-		datums=c.toDataURL();
-		console.log(datums);
+		//datums=c.toDataURL();
+		//console.log(datums);
 		imgData=ctx.getImageData(0,0,c.width,c.height);
 	//cannot get image data from a website anymore unless preauthorized
 	//also cannot take data from image from file without allowing it in browser manually first (not advised)
 	//only works if using a server to run these files, not if running html from desktop
 		for(i=0;i<imgData.data.length;i+=4){
+			document.getElementById("test").innerHTML=i;
 			console.log(imgData.data[i]+" "+imgData.data[i+1]+" "+imgData.data[i+2]);
 			if(i=imgData.data.length-1){working=false;console.log("done");}
 		}
