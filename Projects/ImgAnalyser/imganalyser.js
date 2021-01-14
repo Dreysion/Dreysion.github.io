@@ -1,7 +1,6 @@
 s=new Image();
 src="sample.jpg";
 s.src=src;
-//s.crossOrigin="anonymous";
 
 function loadStuff(){
 	body=document.getElementById("body");
@@ -9,8 +8,9 @@ function loadStuff(){
 	c=document.getElementById("canvas");
 	ctx=c.getContext("2d");
 	
+	working=false;
+	
 	drawImage(s);
-	getData(s);
 }
 
 function drawImage(img){
@@ -20,15 +20,20 @@ function drawImage(img){
 	ctx.drawImage(img,0,0);
 }
 
-function getData(img){
-	datums=c.toDataURL();
-	console.log(datums);
-	imgData=ctx.getImageData(0,0,c.width,c.height);
-	//cannot simply take an image from a website anymore
-	//also cannot take data from image from file without allowing it in browser
-	//would probably work if files are stored online and s.crossOrigin is not commented out
-	for(i=0;i<imgData.data.length;i+=4){
-		console.log(imgData.data[i]+" "+imgData.data[i+1]+" "+imgData.data[i+2]+"<br>");
+function getData(){
+	if(!working){
+		working=true;
+		console.log("working...");
+		datums=c.toDataURL();
+		console.log(datums);
+		imgData=ctx.getImageData(0,0,c.width,c.height);
+	//cannot get image data from a website anymore unless preauthorized
+	//also cannot take data from image from file without allowing it in browser manually first (not advised)
+	//only works if using a server to run these files, not if running html from desktop
+		for(i=0;i<imgData.data.length;i+=4){
+			console.log(imgData.data[i]+" "+imgData.data[i+1]+" "+imgData.data[i+2]);
+			if(i=imgData.data.length-1){working=false;console.log("done");}
+		}
 	}
 }
 
@@ -42,7 +47,6 @@ function switchit(){
 	}
 	s.src=src;
 	s.onload=function(){
-		getData(s);
 		drawImage(s);
 	};		
 }
