@@ -51,6 +51,10 @@ h3, h4, h5, h6 {
 	text-align:left;
 }
 
+a {
+	text-decoration:none;
+}
+
 #header {
 	display:table;
 	width:100vw;
@@ -58,8 +62,12 @@ h3, h4, h5, h6 {
 }
 
 .navtab {
+	display:table-cell;
 	width:150px;
 	height:40px;
 	background-color:green;
 	border:1px solid black;
+	text-align:center;
+	vertical-align:middle;
+	color:black;
 }
