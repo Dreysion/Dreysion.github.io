@@ -56,3 +56,10 @@ h3, h4, h5, h6 {
 	width:100vw;
 	height:20vh;
 }
+
+.navtab {
+	width:150px;
+	height:40px;
+	background-color:green;
+	border:1px solid black;
+}
