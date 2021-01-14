@@ -21,7 +21,7 @@ function drawImage(img){
 }
 
 function getData(){ //still figuring this stuff out, I'm new at it
-	if(!working){
+	//if(!working){ //for some reason, checking if it's working to stop additional jobs makes the for statement run once... but still say done
 		working=true;
 		console.log("working...");
 		//datums=c.toDataURL();
@@ -35,7 +35,7 @@ function getData(){ //still figuring this stuff out, I'm new at it
 			console.log(imgData.data[i]+" "+imgData.data[i+1]+" "+imgData.data[i+2]);
 			if(i=imgData.data.length-1){working=false;console.log("done");}
 		}
-	}
+	//}
 }
 
 function switchit(){ //temporary function, won't be utilized in final project
