@@ -2,15 +2,34 @@ s=new Image();
 src="sample.jpg";
 s.src=src;
 
+
+
 function loadStuff(){
 	body=document.getElementById("body");
+	drawLayout();
+	window.addEventListener("resize",drawLayout);
 	
-	c=document.getElementById("canvas");
+	c=document.getElementById("image-view");
 	ctx=c.getContext("2d");
+	T=document.getElementById("test");
+	I=document.getElementById("test-image");
 	
 	working=false;
 	
 	drawImage(s);
+}
+
+function drawLayout(){
+	l=document.getElementById("left");
+	r=document.getElementById("right");
+	
+	l.style.height=window.innerHeight - 40 + "px";
+	l.style.left="10px";
+	r.style.height=window.innerHeight - 40 + "px";
+	rw=Math.min(200,window.innerWidth * 0.4);
+	r.style.width=rw - 20 + "px";
+	l.style.width=window.innerWidth - rw - 20 + "px";
+	r.style.right="10px";
 }
 
 function drawImage(img){
@@ -61,4 +80,12 @@ function useUploaded(){
 	s.onload=function(){
 		drawImage(s);   //doesn't work, need to use php or asp or something to make connection private and secure
 	}
+}
+
+function test2(){
+	T.innerHTML=document.getElementById("image-file").value;
+	I.src=document.getElementById("image-file").value;
+	var fs = require('fs');
+	var files = fs.readdirSync('/assets/photos/');
+	T.innerHTML+="<br />"+files;
 }

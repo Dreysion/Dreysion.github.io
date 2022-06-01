@@ -3,16 +3,93 @@
 	<head>
 		<title>Img Analyser</title>
 		<script src="imganalyser.js"></script>
+		<style>
+			body{
+				overflow: hidden;
+				min-height:400px;
+				min-width:300px;
+			}
+		
+			div{
+				display: inline-block;
+				padding: 0px 0px 0px 0px;
+				margin: 0px 0px 0px 0px;
+			}
+			
+			canvas{
+				margin:0px 0px 0px 0px;
+				padding:0px 0px 0px 0px;
+			}
+		
+			.layout-div{
+				position:absolute;
+				top:10px;
+				height:100%;
+			}
+		
+			.image-buffer{
+				border: 1px solid #000000;
+				overflow:scroll;
+				width:100%;
+				height:50%;
+			}
+			
+			#options{
+				position:absolute;
+				bottom:0px;
+				border:1px solid #000000;
+			}
+		</style>
 	</head>
 	<body id="body" onload="loadStuff()">
-		<canvas id="canvas"></canvas>
-		<form enctype="multipart/form-data" action="/upload/image" method="post">
-			<label for="uploaded">Upload an image</label>
-			<input id="uploaded" name="uploaded" type="file" accept="image/png, image/jpeg" style="opacity:0" /> <!--doesn't work, need php or asp or something to make the connection private and secure-->
-		</form>
-		<button onclick="switchit()">switch</button>
-		<button onclick="useUploaded()">Use Uploaded</button>
-		<button onclick="getData()">Analyse</button>
-		<div id="test"></div>
+		<div id="left" class="layout-div">
+			<div id="image-view-buffer" class="image-buffer">
+				<canvas id="image-view"></canvas>
+			</div>
+			<div id="pixel-view-buffer" class="image-buffer">
+				<canvas id="pixel-view"></canvas>
+			</div>
+		</div>
+		<div id="right" class="layout-div">
+			<button onclick="switchit()">switch</button>
+			<button onclick="getData()">Analyse</button>
+			<h5>Upload 1</h5>
+			<form enctype="multipart/form-data" action="/upload/image" method="post">
+				<label for="uploaded">Upload an image</label>
+				<input id="uploaded" name="uploaded" type="file" accept="image/png, image/jpeg" style="opacity:0" /> <!--doesn't work, need php or asp or something to make the connection private and secure-->
+			</form>
+			<button onclick="useUploaded()">Use Uploaded</button>
+			<h5>Upload 2</h5>
+			<form enctype="multipart/form-data" action="/upload/image" method="post">
+				<label for="image-file">Upload2</label>
+				<input id="image-file" type="file" accept="image/png, image/jpeg" />
+			</form>
+			<button id="2test" onclick="test2()">Test</button>
+			<h5>Upload 3</h5>
+			<form enctype="multipart/form-data" action="/upload/image" target="img" method="get">
+				<output name="img">
+				<input type="submit">
+			</form>
+			<iframe name="pic" />
+			<hr>
+			<div id="test"></div>
+			<img id="test-image" />
+			<div id="options">
+				<button id="set-hex">Hexidecimal</button>
+				<br />
+				<button id="set-bin">Binary</button>
+				<br />
+				<button id="set-alpha">Alphabet</button>
+				<br />
+				<label>Use digits:</label>
+				<br />
+				<input type="checkbox" id="dig1" name="dig1" value="1">
+				<input type="checkbox" id="dig2" name="dig2" value="2">
+				<input type="checkbox" id="dig3" name="dig3" value="3">
+				<input type="checkbox" id="dig4" name="dig4" value="4">
+				<input type="checkbox" id="dig5" name="dig5" value="5">
+				<input type="checkbox" id="dig6" name="dig6" value="6">
+			</div>
+		</div>
 	</body>
 </html>
