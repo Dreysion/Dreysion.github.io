@@ -1,0 +1,8 @@
+res://default_env.tres
+res://Main.tscn
+res://Scripts/Main.gd
+res://Scripts/Map.gd
+res://Scripts/Input.gd
+res://Scripts/Controls.gd
+res://Scripts/Util.gd
+res://Scripts/Global.gd

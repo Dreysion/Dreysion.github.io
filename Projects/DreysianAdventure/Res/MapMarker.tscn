@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Res/MapRing.png" type="Texture2D" id=1]
+[ext_resource path="res://Res/MapBall.png" type="Texture2D" id=2]
+[ext_resource path="res://Res/MapMarker.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "MarkerAnim"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("MarkerBall:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array( 0, 0.5, 1 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -3 ), Vector2( 0, 0 ) ]
+}
+
+[node name="MapMarker" type="Sprite2D"]
+position = Vector2( 0, -5 )
+texture = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="MarkerBall" type="Sprite2D" parent="."]
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "MarkerAnim"
+method_call_mode = 1
+anims/MarkerAnim = SubResource( 1 )
