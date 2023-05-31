@@ -45,6 +45,7 @@ pointing/emulate_touch_from_mouse=true
 
 [rendering]
 
+renderer/rendering_method="gl_compatibility"
 environment/defaults/default_environment="res://default_env.tres"
 vram_compression/import_etc=true
 quality/driver/driver_name="GLES2"
