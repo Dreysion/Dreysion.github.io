@@ -1,0 +1,176 @@
+S: p1 host creates room
+p2: join room
+p3: join room
+p4: join room
+p1: start game
+S: starting game
+S: deal 5 spell cards
+S: p1 gets x, x, x, x, x
+S: p2 gets x, x, x, x, x
+S: p3 gets x, x, x, x, x
+S: p4 gets x, x, x, x, x
+p1: select x, x, x
+S: p1 inv x, x, x
+S: discard x, x
+p2: select x, x, x
+S: p2 inv x, x, x
+S: discard x, x
+p3: select x, x, x
+S: p3 inv x, x, x
+S: discard x, x
+p4: select x, x, x
+S: p4 inv x, x, x
+S: discard x, x
+S: deal 3 artifact cards
+S: p1 gets x, x, x
+S: p2 gets x, x, x
+S: p3 gets x, x, x
+S: p4 gets x, x, x
+p1: select x
+S: p1 inv x
+S: discard x, x
+p2: select x
+S: p2 inv x
+S: discard x, x
+p3: select x
+S: p3 inv x
+S: discard x, x
+p4: select x
+S: p4 inv x
+S: discard x, x
+S: deal 5 energy tokens
+S: p1 gets x, x, x, x, x
+S: p2 gets x, x, x, x, x
+S: p3 gets x, x, x, x, x
+S: p4 gets x, x, x, x, x
+S: Begin training
+---
+p1: action x, x; reaction x
+p2: action x; reaction x, x
+p3: action x; reaction x, x
+p4: action x, x; reaction x
+S: training round 1
+-
+S: p1 draw energy tokens
+S: p1 gets x, x
+S: enemies attack (none)
+S: roll for encounter
+S: rng 0
+S: Cast action?
+p1: decline
+S: p2 turn
+-
+S: p2 draw energy tokens
+S: p2 gets x, x
+S: enemies attack (none)
+S: roll for encounter
+S: rng 0
+S: Cast action?
+p2: cast x
+S: p2 casts x
+S: cost x token, update p2 inv
+S: p3 turn
+-
+S: p3 draw energy tokens
+S: p3 gets x, x
+S: enemies attack (none)
+S: roll for encounter
+S: rng 1
+S: Cast action?
+p3: cast x
+S: p3 casts x
+S: cost x token, update p3 inv
+S: p4 turn
+-
+S: p4 draw energy tokens
+S: p4 gets x, x
+S: enemies attack (none)
+S: roll for encounter
+S: rng 0
+S: Cast action?
+p1: decline
+S: training round 2; p1 turn
+- 
+...
+S: p2 turn
+-
+S: p2 draw energy tokens
+S: p2 gets x, x
+S: enemies attack (none)
+S: roll for encounter
+S: rng 1
+S: continue effect?
+p2: continue
+S: Effect continues
+S: cost x token, update p2 inv
+S: Cast action?
+p2: cast x
+S: p2 casts x
+S: cost x token, update p2 inv
+S: p3 turn
+-
+S: p3 draw energy tokens
+S: p3 gets x, x
+S: enemies attack
+S: reaction?
+p3: react
+S: react, cost x token, update p3 inv
+S: roll enemy[0] damage
+S: reaction effect
+S: update health
+S: roll for encounter
+S: rng 0
+S: Cast action?
+p3: cast x
+S: p3 casts x
+S: cost x token, update p3 inv
+S: p4 turn
+-
+...
+S: update enemy health
+S: enemy destroyed
+S: px gets x, x
+...
+S: Begin tournament
+---
+S: p1 vs p3; p2 vs p4
+S: deal 3 spell cards
+S: p1 gets x, x, x
+S: p2 gets x, x, x
+S: p3 gets x, x, x
+S: p4 gets x, x, x
+p1: select x
+S: p1 inv add x
+s: discard x, x
+p2: select x
+S: p2 inv add x
+s: discard x, x
+p3: select x
+S: p3 inv add x
+s: discard x, x
+p4: select x
+S: p4 inv add x
+s: discard x, x
+p1: action x, x; reaction x, x
+p2: action x; reactioin x, x, x
+p3: action x, x; reaction x, x
+p4: action x, x, x; reaction x
+S: p1 vs p3; p1 turn
+-
+S: p1 gets x, x token
+S: spell?
+p1: x
+S: p1 casts x; cost x; update p1 inv
+S: p2 reaction NA
+S: p2 turn
+-
+S: p2 gets x, x token
+S: spell?
+p2: x
+S: p2 casts x; cost x; update p2 inv
+S: p1 reaction?
+p1: react
+S: p1 reacts; cost x; update p1 inv
+S: calculate w/reaction; update health
+S: p2 turn
+...
