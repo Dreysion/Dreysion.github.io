@@ -19,7 +19,7 @@ drawFrame = setInterval(function(){
 	//Draw the table
 
 	//Draw the decks & opponents' hands
-	drawCard(center.x-10-cardSize.x,center.y-cardSize.y/2,0);
+	drawCard(center.x-10-cardSize.x,center.y-cardSize.y/2,-20);
 	drawCard(center.x+10,center.y-cardSize.y/2,20);
 
 	//Draw your hand
